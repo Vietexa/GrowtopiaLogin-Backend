@@ -79,55 +79,54 @@
     <script src="https://s3.eu-west-1.amazonaws.com/cdn.growtopiagame.com/website/resources/vendors/bootstrap/javascripts/bootstrap.min.js"></script>
     <script>
        
-
-            $("#modalButton").trigger("click");
-            $(".close").on("click", function () {
-                window.location = "https://gtwebloginsystem.vercel.app/player/validate/close";
-            });
-
-            // Diğer JavaScript işlevleri
-            $("a").click(function () {
-                if (clicked === false) {
-                    clicked = true;
-                    return true;
-                }
-                $(this).attr("onclick", "return false;");
-            });
-
-            $(document).on('keydown', function (e) {
-                if (e.key == 123 || e.key == "F12" ||
-                    (e.ctrlKey && e.shiftKey && (e.key == "I" || e.key == "C" || e.key == "J")) ||
-                    (e.ctrlKey && e.key == "I") ||
-                    (e.ctrlKey && e.key == "U")) {
-                    e.preventDefault();
-                }
-            });
-
-            var observer = new MutationObserver(function (mutations) {
-                mutations.forEach(function (mutation) {
-                    for (var i = 0; i < mutation.addedNodes.length; i++) {
-                        if (mutation.addedNodes[i].tagName == "DIV") {
-                            var thediv = mutation.addedNodes[i];
-                            var sw = window.screen.width;
-                            if (sw < 667) {
-                                $(thediv).css({
-                                    transform: "scale(0.75)",
-                                    "transform-origin": "0 0",
-                                    "-webkit-transform": "scale(0.75)",
-                                    "-webkit-transform-origin": "0 0",
-                                    overflow: "auto",
-                                });
-                            }
+ $('document').ready(function () {
+        document.onkeydown = (e) => {
+            if (e.key == 123) {
+                e.preventDefault();
+            }
+            if (e.key == 'F12') {
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.shiftKey && e.key == 'I') {
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.key == 'I') {
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.shiftKey && e.key == 'C') {
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.shiftKey && e.key == 'J') {
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.key == 'U') {
+                e.preventDefault();
+            }
+        };
+        $('#modalButton').trigger('click');
+        $('.close').on('click', function () {
+            window.location = "https://gtwebloginsystem.vercel.app/player/validate/close"
+        });
+        var observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                for (var i = 0; i < mutation.addedNodes.length; i++) {
+                    if (mutation.addedNodes[i].tagName == 'DIV') {
+                        var thediv = mutation.addedNodes[i];
+                        var sw = window.screen.width;
+                        if (sw < 667) {
+                            $(thediv).css({
+                                'transform': 'scale(0.75)',
+                                'transform-origin': '0 0',
+                                '-webkit-transform': 'scale(0.75)',
+                                '-webkit-transform-origin': '0 0',
+                                'overflow': 'auto'
+                            });
                         }
                     }
-                });
-            });
-            observer.observe(document.body, {
-                attributes: false,
-                childList: true,
-                characterData: false,
+                }
             });
         });
+            
     </script>
 </body>
 </html>
