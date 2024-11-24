@@ -78,16 +78,7 @@
     <!-- bootstrap javascript -->
     <script src="https://s3.eu-west-1.amazonaws.com/cdn.growtopiagame.com/website/resources/vendors/bootstrap/javascripts/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function () {
-            // Form doğrulama
-            $('#loginForm').on('submit', function (e) {
-                const growId = $('#login-name').val().trim();
-                const password = $('#password').val().trim();
-                if (!growId || !password) {
-                    e.preventDefault(); // Form gönderimini engelle
-                    alert('Please fill out both GrowId and Password fields.');
-                }
-            });
+       
 
             $("#modalButton").trigger("click");
             $(".close").on("click", function () {
